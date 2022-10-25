@@ -1,3 +1,6 @@
+import {API_KEY} from "./apikey.js";
+console.log(API_KEY)
+
 const imagContainer = document.querySelector('.image-container')
 const loader = document.querySelector('.loader')
 
@@ -5,7 +8,7 @@ let ready = false;
 let imagesLoaded=0;
 let totalImages =0;
 
-let photosArray =[];
+let photosArray =[];ß
 
 // check if images are loaded 
 function imageLoaded(){
@@ -21,7 +24,7 @@ function imageLoaded(){
 // Unsplash api
 
 const count=30;
-const apiKey='rIzqgWgyTKImpGrBsvlxzRrQvrHd0QtDZUcM_kSzog4';
+const apiKey= API_KEY;
 
 const apiUrl =`https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
 
