@@ -1,3 +1,5 @@
+const e = require("cors");
+
 const imagContainer = document.querySelector('.image-container')
 // const loader = document.querySelector()
 
@@ -10,20 +12,36 @@ const apiKey='rIzqgWgyTKImpGrBsvlxzRrQvrHd0QtDZUcM_kSzog4';
 
 const apiUrl =`https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
 
+// helper function for the setattributes
+
+function setAttributes(element, attributes){
+    for (const key in attributes){
+        element.setAttribute(key, attributes[key])
+    }
+}
+
+
+
+
+
 // elements for links/photos and add to DOM
 
 function displayPhotos(){
-    // need for Each for this array
+    // need for Each for this arrayß
     photosArray.forEach((photo) => {
         // create anchor to unsplash
         const item = document.createElement('a');
-        item.setAttribute('href', photo.links.html);
-        item.setAttribute ('target', '_blank');
+        setAttributes(item, {
+            href: photo.links.html,
+            target: '_blank',
+        })
         // create title
         const img = document.createElement('img');
-        img.setAttribute('src', photo.urls.regular);
-        img.setAttribute('alt', photo.alt_description);
-        img.setAttribute('title', photo.alt_description);
+        setAttributes(item, {
+            src: photo.urls.regular,
+            alt: photo.alt_description,
+            title: photo.alt_description,
+        })
 
         item.appendChild(img);
         imagContainer.appendChild(item)
